@@ -2,39 +2,7 @@ import random
 import pandas as pd
 from datetime import datetime, timedelta
 from collections import defaultdict
-
-# Считывание данных из файлов
-def read_data(filename):
-    with open(filename, 'r', encoding='utf-8') as file:
-        return [line.strip() for line in file.readlines()]
-
-# Считываем магазины, бренды и категории
-#stores = read_data('data/stores.txt')
-#brands = read_data('data/brands.txt')
-#categories = read_data('data/categories.txt')
-
-banks = ["Сбербанк", "Газпромбанк", "Альфа-Банк", "ВТБ", "Тинькофф", "Райффайзенбанк"]
-
-# Список платёжных систем
-payment_systems = ["Visa", "MasterCard", "МИР"]
-
-stores = [
-    "М.Видео", "Эльдорадо", "DNS", "Ситилинк", "Технопарк", 
-    "Media Markt", "Евросеть", "Техносила", "РЕСТОР", "Технополис"
-]
-
-# Список категорий техники
-categories = [
-    "Смартфоны", "Ноутбуки", "Телевизоры", "Планшеты", "Холодильники", 
-    "Стиральные машины", "Кофемашины", "Пылесосы", "Игровые консоли", 
-    "Умные часы", "Фотоаппараты", "Колонки", "Наушники"
-]
-
-# Список брендов для каждой категории
-brands = [
-    "Apple", "Samsung", "Lenovo", "LG", "Sony", "Asus", "HP", 
-    "Xiaomi", "Huawei", "Acer", "Bosch", "Dyson", "Philips", "JBL"
-]
+from data import *
 
 # Генерация случайных координат для магазинов в Санкт-Петербурге
 def generate_random_coordinates():

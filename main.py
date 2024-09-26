@@ -4,7 +4,7 @@ import pandas as pd
 
 # Параметры генерации
 
-num_rows = 50  # Количество строк в датасете
+num_rows = 200  # Количество строк в датасете
 
 # Генерация датасета
 dataset = generate_dataset(num_rows)
