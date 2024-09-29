@@ -1,138 +1,227 @@
 
+'''banks = ["Сбербанк","Альфа-Банк","ВТБ", "ПСБ","Газпромбанк" ]
+
+bin_codes = {
+    "Сбербанк": ["27402", "27406", "27411", "27416", "27417", "27418", "27420", "27422", "27425", "27427"],
+    "Альфа-Банк": ["10584", "15400", "15428", "15429", "15481", "15482", "19539", "19540", "21118", "27714"],
+    "ВТБ": ["18868", "18869", "18870", "18873", "21191", "26375", "30127", "31723", "40622", "40623"],
+    "ПСБ": ["02507", "04906", "24561", "24562", "24563", "26803", "26804", "29726", "29727", "29728"],
+    "Газпромбанк": ["04136", "04270", "04271", "04272", "04273", "24974", "24975", "24976", "26890", "27326"]
+}
+
+payment_systems = {
+    "МИР": "2",
+    "Visa": "4",
+    "MasterCard": "5",
+}'''
+
 banks = ["Сбербанк", "Газпромбанк", "Альфа-Банк", "ВТБ", "Тинькофф", "Райффайзенбанк"]
 
 payment_systems = ["Visa", "MasterCard", "МИР"]
 
-stores = [
-    "М.видео",
-    "Эльдорадо",
-    "Технопарк",
-    "DNS",
-    "Ситилинк",
-    "Мега",
-    "РТС",
-    "СберМегаМаркет",
-    "Технополис",
-    "Норд",
-    "Леруа Мерлен",
-    "Касторама",
-    "Техносклад",
-    "Компьютерный мир",
-    "Склад Услуг",
-    "Алло",
-    "Гипермаркет Электроники",
-    "РТС-полис",
-    "Мир Электроники",
-    "Электросила",
-    "Техника для дома",
-    "ПетроЭлектро" ,
-    "КультТехника",
-    "Компьютерная Сказка",
-    "Электроника24",
-    "Технический Рай",
-    "Магнит",
-    "Сила Техники",
-    "Технопланета",
-    "ЭкоТехника",
-    "Техника Плюс",
-    "ХоббиТехника",
-    "СуперЭлектроника",
-    "ТехноДом",
-    "Магазин для Гиков"
+stores= [ "М.Видео", "Эльдорадо", "DNS", "OZON", "Wildberries", "Лента", "Пятёрочка", "Ашан", "Metro", "OКей", "Перекрёсток", 
+"Дикси", "Магнит", "FixPrice", "Золотое Яблоко", "Азбука Вкуса", "Hoff", "OBI", "Леруа Мерлен", "H&M",  "Zara", "Спортмастер" 
 ]
 
-coordinates = {
-    "М.видео": [59.935067, 30.321701],
-    "Эльдорадо": [59.935578, 30.335610],
-    "Технопарк": [59.930384, 30.349496],
-    "DNS": [59.919218, 30.328348],
-    "Ситилинк": [59.933090, 30.332695],
-    "Мега": [59.898034, 30.524110],
-    "РТС": [59.929101, 30.349950],
-    "СберМегаМаркет": [59.918268, 30.354700],
-    "Технополис": [59.895752, 30.485174],
-    "Норд": [59.931944, 30.318672],
-    "Леруа Мерлен": [59.887218, 30.275622],
-    "Касторама": [59.961893, 30.302962],
-    "Техносклад": [59.884301, 30.261245],
-    "Компьютерный мир": [59.956748, 30.304135],
-    "Склад Услуг": [59.952005, 30.374380],
-    "Алло": [59.935753, 30.322591],
-    "Гипермаркет Электроники": [59.867471, 30.303989],
-    "РТС-полис": [59.874816, 30.265236],
-    "Мир Электроники": [59.931111, 30.294389],
-    "Электросила": [59.914832, 30.307320],
-    "Техника для дома": [59.949960, 30.297554],
-    "ПетроЭлектро": [59.872250, 30.367981],
-    "КультТехника": [59.932109, 30.321487],
-    "Компьютерная Сказка": [59.951050, 30.321650],
-    "Электроника24": [59.926054, 30.353815],
-    "Технический Рай": [59.939857, 30.379249],
-    "Магнит": [59.913070, 30.290614],
-    "Сила Техники": [59.935012, 30.308919],
-    "Технопланета": [59.907121, 30.361413],
-    "ЭкоТехника": [59.867844, 30.256433],
-    "Техника Плюс": [59.872879, 30.372264],
-    "ХоббиТехника": [59.897156, 30.296864],
-    "СуперЭлектроника": [59.895790, 30.372575],
-    "ТехноДом": [59.930390, 30.325660],
-    "Магазин для Гиков": [59.916457, 30.339893],
+
+stores_data = {
+    'М.Видео': [
+        [59.920141, 30.322005, '10:00', '12:00'], 
+        [59.882592, 30.324724, '10:00', '22:00'], 
+        [59.874621, 30.369119, '09:00', '21:00']
+    ],
+    
+    "Эльдорадо": [
+        [59.941058, 30.294824, "10:00", "20:00"],
+        [59.877354, 30.358700, "09:00", "21:00"],
+        [59.870246, 30.379192, "10:00", "22:00"]
+    ],
+    "DNS": [
+        [59.875571, 30.368339, "10:00", "22:00"],
+        [59.914613, 30.318043, "09:00", "20:00"],
+        [59.845385, 30.323386, "10:00", "22:00"]
+    ],
+    "OZON": [
+        [59.955543, 30.303456, "10:00", "22:00"],
+        [59.902312, 30.301234, "10:00", "23:00"],
+        [59.941234, 30.321567, "09:00", "20:00"]
+    ],
+    "Wildberries": [
+        [59.937890, 30.315432, "10:00", "22:00"],
+        [59.954321, 30.309876, "10:00", "21:00"],
+        [59.923456, 30.306789, "11:00", "22:00"]
+    ],
+    "Лента": [
+        [59.907884, 30.302755, "10:00", "22:00"],
+        [59.919543, 30.346746, "09:00", "20:00"],
+        [59.846614, 30.339085, "10:00", "22:00"]
+    ],
+    "Пятёрочка": [
+        [59.856022, 30.345835, "10:00", "22:00"],
+        [59.851500, 30.027123, "09:00", "21:00"],
+        [59.932123, 30.307654, "10:00", "22:00"]
+    ],
+    "Ашан": [
+        [59.913418, 30.340568, "09:00", "21:00"],
+        [59.867865, 30.350961, "10:00", "22:00"],
+        [59.816514, 30.317999, "10:00", "20:00"]
+    ],
+    "Metro": [
+        [59.823101, 30.314534, "10:00", "22:00"],
+        [59.944488, 30.455482, "11:00", "22:00"]
+    ],
+    "OКей": [
+        [59.828255, 30.315247, "10:00", "22:00"],
+        [59.914959, 30.479734, "10:00", "21:00"],
+        [59.884972, 30.311267, "10:00", "22:00"]
+    ],
+    "Перекрёсток": [
+        [59.863422, 30.404700, "10:00", "22:00"],
+        [59.901915, 30.271429, "10:00", "21:00"],
+        [59.958432, 30.411918, "09:00", "20:00"]
+    ],
+    "Дикси": [
+        [59.924321, 30.318765, "10:00", "22:00"],
+        [59.945678, 30.312345, "10:00", "21:00"],
+        [59.926789, 30.308901, "10:00", "22:00"]
+    ],
+    "Магнит": [
+        [59.926543, 30.323765, "10:00", "22:00"],
+        [59.937890, 30.320456, "10:00", "20:00"],
+        [59.941234, 30.314567, "10:00", "22:00"]
+    ],
+    "FixPrice": [
+        [59.935432, 30.319876, "10:00", "22:00"],
+        [59.915678, 30.311234, "09:00", "20:00"],
+        [59.946789, 30.310123, "10:00", "22:00"]
+    ],
+    "Золотое Яблоко": [
+        [59.943210, 30.315432, "10:00", "22:00"],
+        [59.925123, 30.302345, "10:00", "21:00"],
+        [59.911234, 30.316789, "09:00", "20:00"]
+    ],
+    "Азбука Вкуса": [
+        [59.921678, 30.312345, "10:00", "22:00"],
+        [59.934123, 30.317654, "10:00", "20:00"],
+        [59.918765, 30.309876, "10:00", "22:00"]
+    ],
+    "Hoff": [
+        [59.914567, 30.304321, "10:00", "22:00"],
+        [59.926543, 30.320456, "10:00", "21:00"],
+        [59.937890, 30.310765, "10:00", "22:00"]
+    ],
+    "OBI": [
+        [59.874446, 30.348554, "10:00", "22:00"],
+        [59.902220, 30.519794, "10:00", "20:00"],
+        [59.996297, 30.146508, "10:00", "22:00"]
+    ],
+    "Леруа Мерлен": [
+        [59.913456, 30.319987, "10:00", "22:00"],
+        [59.926789, 30.312345, "10:00", "21:00"],
+        [59.917654, 30.316543, "09:00", "20:00"]
+    ],
+    "H&M": [
+        [59.927654, 30.312345, "10:00", "22:00"],
+        [59.948765, 30.321456, "10:00", "21:00"],
+        [59.934321, 30.308765, "10:00", "22:00"]
+    ],
+    "Zara": [
+        [59.928123, 30.304567, "10:00", "22:00"],
+        [59.945678, 30.315432, "10:00", "20:00"],
+        [59.919876, 30.311234, "10:00", "22:00"]
+    ],
+    "Спортмастер": [
+        [59.930123, 30.308765, "10:00", "22:00"],
+        [59.945678, 30.315123, "10:00", "21:00"],
+        [59.918765, 30.324567, "10:00", "22:00"]
+    ]
 }
 
+categories = {
+    "М.Видео": ["Смартфоны", "Ноутбуки", "Телевизоры", "Планшеты", "Наушники", "Микроволновые печи", "Стиральные машины"],
+    "Эльдорадо": ["Смартфоны", "Ноутбуки", "Телевизоры", "Планшеты", "Умные часы", "Наушники", "Игровые приставки", "Блендеры"],
+    "DNS": ["Смартфоны", "Ноутбуки", "Телевизоры", "Планшеты", "Кофеварки и кофемашины", "Кондиционеры", "Компьютерные кресла"],
+    "OZON": ["Смартфоны", "Ноутбуки", "Телевизоры", "Кофеварки и кофемашины", "Холодильники", "Гироскутеры", "Наручные часы"],
+    "Wildberries": ["Смартфоны", "Косметика", "Кофеварки и кофемашины", "Холодильники", "Микроволновые печи"],
+    "Лента": ["Продукты", "Косметика", "Вентиляторы", "Гироскутеры", "Кроссовки", "Пылесосы", "Принтеры"],
+    "Пятёрочка": ["Продукты", "Косметика", "Обогреватели"],
+    "Ашан": ["Парфюмерия", "Холодильники", "Продукты"],
+    "Metro": ["Продукты", "Косметика", "Гладильные доски", "Стулья для офиса"],
+    "OКей": ["Продукты", "Косметика", "Сейфы"],
+    "Перекрёсток": ["Продукты", "Косметика", "Настольные лампы"],
+    "Дикси": ["Продукты", "Косметика", "Чайники"],
+    "Магнит": ["Продукты", "Косметика", "Чайники"],
+    "FixPrice": ["Продукты", "Косметика", "Фены"],
+    "Золотое Яблоко": ["Парфюмерия", "Косметика", "Ароматы", "Сумки"],
+    "Азбука Вкуса": ["Продукты"],
+    "Hoff": ["Шкафы", "Столы", "Диваны", "Шкафы для одежды", "Кровати", "Кухонные столы"],
+    "OBI": ["Газонокосилки", "Садовый инвентарь", "Инструменты", "Шкафы для одежды", "Комоды", "Кровати", "Игровые столы", "Камеры видеонаблюдения"],
+    "Леруа Мерлен": ["Газонокосилки", "Садовый инвентарь", "Инструменты", "Шкафы для одежды", "Кровати", "Шкафы-купе"],
+    "H&M": ["Одежда", "Обувь", "Кроссовки", "Пуховики", "Рубашки", "Платья"],
+    "Zara": ["Одежда", "Обувь", "Кроссовки", "Пуховики", "Рубашки", "Джинсы"],
+    "Спортмастер": ["Спортивная одежда", "Спортивный инвентарь", "Велосипеды", "Ролики", "Палатки", "Туристические рюкзаки", "Кроссовки", "Носки", "Куртки"]
+}
 
-categories = ["Смартфоны",
-    "Планшеты",
-    "Лаптопы",
-    "Персональные компьютеры",
-    "Мониторы",
-    "Телевизоры",
-    "Умные часы",
-    "Наушники",
-    "Аудиосистемы",
-    "Bluetooth-колонки",
-    "Фотоаппараты",
-    "Видеокамеры",
-    "Дроны",
-    "Игровые консоли",
-    "Игровые компьютеры",
-    "Периферийные устройства (клавиатуры, мыши)",
-    "Принтеры",
-    "Сканеры",
-    "Проекторы",
-    "Холодильники",
-    "Стиральные машины",
-    "Посудомоечные машины",
-    "Микроволновые печи",
-    "Тостеры",
-    "Блендеры",
-    "Кофеварки",
-    "Умные колонки",
-    "Системы безопасности (камера, датчики)",
-    "Умные замки",
-    "Домашние кинотеатры",
-    "Blu-ray плееры",
-    "USB-накопители",
-    "Внешние жесткие диски",
-    "Сетевые накопители (NAS)",
-    "Модемы",
-    "Роутеры",
-    "Умные лампы",
-    "Веб-камеры",
-    "Микрофоны",
-    "Профессиональные видеокамеры",
-    "Умные стиральные машины",
-    "Умные холодильники",
-    "Динамики",
-    "Электронный книжки",
-    "Аккумуляторы и зарядные устройства",
-    "Электронные книги",
-    "Умные калонки",
-    "Электросамокаты",
-    "Электрические скейтборды",
-    "Развлекательные системы для автомобилей",
-    "GPS-навигаторы",
-    "Автомобильные видеорегистраторы",
-    "Аксессуары для мобильных устройств",
-    "Пылесосы"]
-
-brands = [ "Apple", "Samsung", "Sony" , "LG", "Panasonic", "Dell", "HP", "Lenovo", "Microsoft", "Asus", "Acer", "Razer", "NVIDIA", "AMD", "Intel", "Google", "Xiaomi", "Huawei", "OnePlus", "Oppo", "Realme", "Vivo", "BlackBerry", "Motorola", "Nokia", "TCL", "ZTE", "Logitech", "Corsair", "Western Digital", "Seagate", "Kingston", "Crucial", "Thermaltake", "Epson", "Brother", "Canon", "Nikon", "Fujifilm", "GoPro", "DJI", "Fitbit", "Garmin", "Bose", "Beats", "JBL", "Sennheiser", "Bang & Olufsen", "Pioneer", "Onkyo", "Yamaha", "Sonos", "Philips", "Toshiba", "Sharp", "Mitsubishi", "NEC", "ViewSonic", "BenQ", "Acer", "MSI", "Gigabyte", "Sapphire", "EVGA", "ASRock", "Razer", "SteelSeries", "HyperX", "Roccat", "Turtle Beach", "XFX", "Alienware", "Origin PC", "Corsair", "NZXT", "Thermaltake", "Cooler Master", "Antec", "Fractal Design", "BitFenix", "Noctua", "Lian Li", "Deepcool", "ARCTIC", "Be Quiet!", "Sabrent", "InWin", "Zalman", "Sharkoon", "Adata", "Patriot", "Silicon Power", "Transcend", "Team Group", "Lexar", "PNY", "Sandisk", "Lexar", "ADATA", "Buffalo", "IOGEAR", "D-Link", "Netgear", "TP-Link", "Linksys", "Belkin", "Zyxel", "TrendNet", "MikroTik", "Ubiquiti", "Palo Alto Networks", "Fortinet", "Sophos", "Cisco", "Juniper Networks", "Arista Networks", "HPE", "Dell EMC", "IBM", "Oracle", "SAP", "Salesforce", "Adobe", "Autodesk", "Intuit", "Microsoft Dynamics", "Zoho", "Shopify", "Magento", "WooCommerce", "BigCommerce", "SquareSpace", "Wix", "GoDaddy", "Bluehost", "HostGator", "SiteGround", "A2 Hosting", "DreamHost", "InMotion Hosting", "Liquid Web", "WP Engine", "Vercel", "Netlify", "Cloudflare", "Amazon", "eBay", "Alibaba", "Etsy", "Rakuten", "Flipkart", "JD.com", "Best Buy", "Newegg", "B&H Photo Video", "Micro Center", "Fry's Electronics", "Walmart", "Target", "Costco", "Sam's Club", "Argos", "Carrefour", "Lidl", "Aldi", "Tesco", "Sainsbury's", "Metro", "Cash & Carry", "Croma", "Cdiscount", "MediaMarkt", "Conforama", "El Corte Inglés", "Fnac", "Darty", "Comet", "Currys", "Maplin", "Poundland", "John Lewis", "Argos", "Kogan", "Jaycar", "Dick Smith", "Anaconda", "Harvey Norman", "The Good Guys", "Officeworks", "Staples", "Office Depot", "Quill", "Grainger", "McMaster-Carr", "Fastenal", "MSC Industrial Direct", "Digi-Key", "Mouser Electronics", "Allied Electronics", "RS Components", "Farnell", "Sourcetronic", "Sourcing Connection", "TME", "Conrad", "Newark", "Arrow Electronics", "Avnet", "Future Electronics", "Component Distributors", "B&B Electronics", "Molex", "TE Connectivity", "Amphenol", "3M", "Honeywell", "Siemens", "Rockwell Automation", "Schneider Electric", "Emerson", "ABB", "GE", "Philips", "Bosch", "Samsung Heavy Industries", "Mitsubishi Electric", "Panasonic", "Kyocera", "Ricoh", "Toshiba", "Canon", "Seiko Epson", "Harman Kardon", "JBL", "Bose", "Sennheiser", "Audio-Technica", "Sony", "Pioneer", "Kenwood", "Alpine", "Kicker", "MTX Audio", "JL Audio", "Rockford Fosgate", "Focal", "Dynaudio", "Bang & Olufsen", "KEF", "Cambridge Audio", "Naim Audio", "Monitor Audio", "Dali", "SVS", "Paradigm", "Definitive Technology", "Polk Audio", "Klipsch", "Bowers & Wilkins", "Sonos", "Bang & Olufsen", "Harman", "Vizio", "TCL", "Hisense", "Skyworth", "Philips", "LG", "Samsung", "Sony", "Sharp", "BenQ", "Epson", "ViewSonic", "Acer", "Dell", "HP", "Lenovo", "Microsoft", "Razer", "Logitech", "Corsair", "HyperX", "SteelSeries", "Cooler Master", "NZXT", "Thermaltake", "Deepcool", "Lian Li", "InWin", "Antec", "BitFenix", "Fractal Design", "Noctua", "ARCTIC", "be quiet!", "Sabrent", "Team Group", "Silicon Power", "Transcend", "Adata", "Patriot", "Lexar", "PNY", "Sandisk", "Buffalo", "IOGEAR", "D-Link", "Netgear", "TP-Link", "Linksys", "Belkin", "Zyxel", "TrendNet", "MikroTik", "Ubiquiti", "Palo Alto Networks", "Fortinet", "Sophos", "Cisco", "Juniper Networks", "Arista Networks", "HPE", "Dell EMC", "IBM", "Oracle", "SAP", "Salesforce", "Adobe", "Autodesk", "Intuit", "Microsoft Dynamics", "Zoho", "Shopify", "Magento", "WooCommerce", "BigCommerce", "SquareSpace", "Wix", "GoDaddy", "Bluehost", "HostGator", "SiteGround", "A2 Hosting", "DreamHost", "InMotion Hosting", "Liquid Web", "WP Engine", "Vercel", "Netlify", "Cloudflare", "Amazon", "eBay", "Alibaba", "Etsy", "Rakuten", "Flipkart", "JD.com", "Best Buy", "Newegg", "B&H Photo Video", "Micro Center", "Fry's Electronics", "Walmart", "Target", "Costco", "Sam's Club", "Argos", "Carrefour", "Lidl", "Aldi", "Tesco", "Sainsbury's", "Metro", "Cash & Carry", "Croma", "Cdiscount", "MediaMarkt", "Conforama", "El Corte Inglés", "Fnac", "Darty", "Comet", "Currys", "Maplin", "Logitech", "Razer", "HyperX", "SteelSeries", "ZOTAC", "EVGA", "MSI", "Gigabyte", "ASRock", "Enermax", "Cooler Master", "NZXT", "Thermaltake", "Antec", "Fractal Design", "Roccat", "Ducky", "Varmilo", "Corsair", "Adata","TP-Link", "Netgear", "Linksys", "D-Link", "Zyxel", "Synology", "QNAP", "Apple", "Samsung", "Microsoft","Amazon", "eBay", "Alibaba", "Etsy", "Walmart", "Best Buy", "Newegg", "Target", "Sears", "Argos"]
+brands = { 
+    "Смартфоны": ["Huawei", "Samsung", "Apple", "Xiaomi", "OnePlus", "Realme", "Oppo", "Vivo", "Google", "Sony", 12000, 100000], 
+    "Умные часы": ["Xiaomi", "Apple", "Samsung", "Garmin", "Amazfit", "Huawei", "Fitbit", "Withings", "Fossil", "Honor", 15000, 50000],
+    "Наушники": ["Xiaomi", "Apple", "JBL", "Beats", "Bose", "Sony", "Sennheiser", "Jabra", "Skullcandy", "Anker", 4000, 30000],
+    "Телевизоры": ["Samsung", "LG", "Xiaomi", "Sony", "Panasonic", "Philips", "Hisense", "TCL", "Sharp", "Vizio", 20000, 100000],
+    "Ноутбуки": ["Apple", "Huawei", "Xiaomi", "Lenovo", "Samsung", "HP", "Asus", "Acer", "Dell", "Microsoft", 12000, 300000],
+    "Холодильники": ["Samsung", "LG", "Nordfrost", "Бирюса", "Atlant", "Beko", "Bosch", "Gorenje", "Haier", "Indesit", 35000, 120000],
+    "Микроволновые печи": ["Bosch", "Gorenje", "Maunfeld", "Midea", "Panasonic", "Samsung", "LG", "Sharp", "Daewoo", "Electrolux", 10000, 40000],
+    "Кофеварки и кофемашины": ["TEENRA", "DeLonghi", "Bosch", "Philips", "Nespresso", "Krups", "Jura", "Gaggia", "Miele", "Saeco", 15000, 80000],
+    "Вентиляторы": ["Centek", "Equation", "Scarlett", "Ballu", "Tefal", "Vitek", "Polaris", "SUPRA", "StarWind", "Dyson", 5000, 20000],
+    "Кондиционеры": ["Haier", "Ballu", "Hisense", "ROYAL Clima", "Electrolux", "Mitsubishi", "Daikin", "Panasonic", "LG", "Toshiba", 20000, 40000],
+    "Палатки": ["BTrace", "High Peak", "Tplus", "Talberg", "Alexika", "Marmot", "The North Face", "MSR", "Coleman", "Salewa", 7000, 50000],
+    "Велосипеды": ["STELS", "Forward", "Novatrack", "Stark", "Stinger", "Merida", "Scott", "Trek", "Specialized", "Cannondale", 20000, 150000],
+    "Гироскутеры": ["GT", "Hoverbot", "MiniPro", "Zaxboard", "Xiaomi", "Ninebot", "Smart Balance", "Razor", "Airwheel", "InMotion", 20000, 100000],
+    "Газонокосилки": ["Huter", "PATRIOT", "Ресанта", "Зубр", "Champion", "Gardena", "Bosch", "Makita", "Stiga", "Honda", 15000, 60000],
+    "Планшеты": ["Apple", "Huawei", "Xiaomi", "Lenovo", "Samsung", "BQ", "Microsoft", "Acer", "Asus", "Dell", 20000, 100000],
+    "Парфюмерия": ["SHAIK", "Fragrance World", "Giorgio Armani", "Killian", "Dior", "Chanel", "Gucci", "Versace", "Tom Ford", "YSL", 12000, 80000],
+    "Наручные часы": ["Casio", "Traser", "Jacques Lemans", "Xiaomi", "Apple", "Seiko", "Citizen", "Omega", "Breitling", "Tissot", 200, 30000],
+    "Сумки": ["Guess", "Michael Kors", "Chanel", "Louis Vuitton", "Prada", "Fendi", "Coach", 3000, 20000],
+    "Компьютерные кресла": ["DXRacer", "ThunderX3", "AeroCool", "Cougar", "Secretlab", "AKRacing", "Nitro Concepts", "Noblechairs", "Vertagear", "Anda Seat", 15000, 50000],
+    "Туристические рюкзаки": ["Osprey", "Deuter", "The North Face", "Gregory", "Lowe Alpine", "Vaude", "Salomon", "Columbia", "Black Diamond", "Fjallraven", 10000, 50000],
+    "Ролики": ["Rollerblade", "K2", "Powerslide", "Fila", "Seba", "Roces", "USD", "Bauer", "Bont", "Reign", 8000, 30000],
+    "Продукты": ["Молоко", "Хлеб", "Яйца", "Мясо", "Овощи", "Фрукты", "Крупы", "Макароны", "Консервы", 300, 5000],
+    "Косметика": ["Лосьоны", "Кремы", "Шампуни", "Гели", "Декоративная косметика", 2000, 20000],
+    "Шкафы для одежды": ["Hoff", "Leroy Merlin", "Столплит", "Шатура", "Белфан", "Орматек", "Mebelvia", "Ангстрем", "Mr.Doors", 15000, 100000],
+    "Комоды": ["Hoff", "Столплит", "Лазурит", "Mebelvia", "Белфан", "Ангстрем", "Шатура", "Mr.Doors", "Эстелла", 12000, 50000],
+    "Кровати": ["Орматек", "Hoff", "Белфан", "Mebelvia", "Лазурит", "Столплит", "Шатура", "Ангстрем", "Mr.Doors", 25000, 200000],
+    "Кухонные столы": ["Hoff", "Лазурит", "Столплит", "Белфан", "Mebelvia", "Шатура", "Ангстрем", "Mr.Doors", "Эстелла", 15000, 70000],
+    "Диваны": ["Hoff", "Лазурит", "Anderssen", "Столплит", "Белфан", "Mebelvia", "Шатура", "Ангстрем", "Орматек", 35000, 150000],
+    "Кроссовки": ["New Balance", "Reebok", "ASICS", "Salomon", "Saucony", "Hoka One One", "Mizuno", 3000, 50000],
+    "Пуховики": ["Columbia", "Canada Goose", "The North Face", "Salomon", "Montbell", "Baon", 7000, 80000],
+    "Рубашки": ["Henderson", "Hugo Boss", "Zara", "Massimo Dutti", "Levi's", "Tommy Hilfiger", 5000, 30000],
+    "Джинсы": ["Levi's", "Wrangler", "Lee", "Diesel", "Tommy Hilfiger", "Colin's", 500, 25000],
+    "Носки": ["Henderson", "Stance", "Puma", "Adidas", "Levi's", "Reebok", 500, 3000],
+    "Куртки": ["Columbia", "The North Face", "Salomon", "Patagonia", "Jack Wolfskin", "Baon", 3000, 30000],
+    "Платья": ["Mango", "Zarina", "Sela", "O\"STIN", "Befree", 1500, 20000],
+    "Игровые приставки": ["Sony PlayStation", "Microsoft Xbox", "Nintendo", "Sega", 12000, 100000],
+    "Стиральные машины": ["Samsung", "LG", "Indesit", "Bosch", "Haier", "Midea", "Electrolux", "Siemens", "Ariston", "Candy", 25000, 100000],
+    "Блендеры": ["Braun", "Bosch", "Philips", "Vitek", "Scarlett", "Moulinex", "Redmond", "Tefal", "Polaris", "Bork", 1500, 18000],
+    "Пылесосы": ["Dyson", "Xiaomi", "Bosch", "Philips", "Samsung", "Thomas", "LG", "Karcher", "Rowenta", "Electrolux", 6000, 20000],
+    "Шкафы-купе": ["Hoff", "Лазурит", "Mr.Doors", "Столплит", "Mebelvia", "Шатура", "Орматек", "Белфан", 12000, 40000],
+    "Игровые столы": ["DXRacer", "Cougar", "Aerocool", "ThunderX3", "Nitro Concepts", "Arozzi", "IKEA", 15000, 50000],
+    "Гладильные доски": ["Nika", "Leifheit", "Hausmann", "Eurogold", "Philips", "Bosch", "Мещера", 2000, 10000],
+    "Обогреватели": ["Ballu", "Electrolux", "Polaris", "Timberk", "De\"Longhi", "Hyundai", "Vitek", "Rolsen", 2000, 16000],
+    "Чайники": ["Bosch", "Philips", "Tefal", "Vitek", "Redmond", "Xiaomi", "Scarlett", "Braun", "Bork", "Moulinex", 2000, 15000],
+    "Фены": ["Philips", "Braun", "Dyson", "Remington", "Rowenta", "Babyliss", "Bosch", "Xiaomi", "Vitek", "Scarlett", 1500, 13000],
+    "Ручные инструменты": ["Bosch", "Makita", "DeWalt", "Metabo", "Зубр", "Stanley", "Ryobi", "Black+Decker", 150, 40000],
+    "Настольные лампы": ["Maytoni", "Lightstar", "ST-Luce", "Odeon Light", "Eglo", "Arte Lamp", "Lussole", "MW-Light", "Eurosvet", "Globo", 2000, 7000],
+    "Стулья для офиса": ["Бюрократ", "TetChair", "Chairman", "Nowy Styl", "IKEA", "DUOREST", "Hara Chair", "Komfort Seating", "KAB Seating", 3000, 25000],
+    "Сейфы": ["Aiko", "Valberg", "Safewell", "MDTB", "Juwel", "Stark", "Onix", "Burg-Wachter", "Technomax", 3000, 15000],
+    "Принтеры": ["HP", "Canon", "Epson", "Brother", "Samsung", "Xerox", "Kyocera", "Ricoh", "OKI", 10000, 20000],
+    "Камеры видеонаблюдения": ["Hikvision", "Dahua", "Xiaomi", "Axis", "Samsung", "TP-Link", "EZVIZ", "Uniview", "Bosch", 5000, 20000],
+    "Шкафы": ["Hoff", "Столплит", "Мебельный Двор", "Лазурит", 15000, 50000],
+    "Обувь": ["Adidas", "Puma", "Reebok", "New Balance", 2000, 18000],
+    "Инструменты": ["Bosch", "Makita", "DeWalt", "Stanley", "Black+Decker", 200, 50000],
+    "Одежда": ["Zara", "H&M", "Uniqlo", "Mango", "Bershka", 1000, 80000],
+    "Спортивная одежда": ["Adidas", "Nike", "Under Armour", "Puma", "Reebok", 1000, 20000],
+    "Спортивный инвентарь": ["Wilson", "Head", "Dunlop", "Babolat", "Kettler", 1000, 20000],
+    "Столы": ["Hoff", "Столплит", "Мебельный Двор", "Лазурит", 12000, 60000],
+    "Ароматы": ["Chanel", "Dior", "Gucci", "Hugo Boss", "Versace", 1000, 12000],
+    "Садовый инвентарь": ["Gardena", "Fiskars", "Bosch", "Black+Decker", "AL-KO", 500, 40000],
+    "Системы видеонаблюдения": ["Hikvision", "Dahua", "TP-Link", 10000, 100000]
+}

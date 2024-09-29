@@ -4,11 +4,10 @@ from datetime import datetime, timedelta
 from collections import defaultdict
 from data import *
 
-# c 10:00 до 22:00
-def generate_random_time():
+def generate_random_time(start_t, end_t):
     current_date = datetime.now().date()
-    start_time = datetime.combine(current_date, datetime.strptime("10:00", "%H:%M").time())
-    end_time = datetime.combine(current_date, datetime.strptime("22:00", "%H:%M").time())
+    start_time = datetime.combine(current_date, datetime.strptime(start_t, "%H:%M").time())
+    end_time = datetime.combine(current_date, datetime.strptime(end_t, "%H:%M").time())
 
     delta = end_time - start_time
     random_seconds = random.randint(0, delta.seconds)
@@ -16,8 +15,8 @@ def generate_random_time():
 
     return purchase_time.strftime('%Y-%m-%dT%H:%M:%S+03:00')
 
-used_cards = defaultdict(int)
 
+used_cards = defaultdict(int)
 def generate_card_number():
 
     card_number = f"{random.randint(1000, 9999)} {random.randint(1000, 9999)} {random.randint(1000, 9999)} {random.randint(1000, 9999)}"
@@ -34,27 +33,29 @@ def generate_unique_card_number():
             return card_number, bank, payment_system
 
 
-def generate_quantity_and_price():
-    quantity = random.randint(5, 20)
-    price = random.randint(20000, 100000)
+def generate_quantity_and_price(a):
+    quantity = random.randint(1, 10)
+    price = random.randint( a[len(a)-2] , a[len(a)-1] ) 
     return quantity, price
 
-def generate_purchase_row():
-    store = random.choice(stores)  
-    category = random.choice(categories)  
-    brand = random.choice(brands)  
-    latitude, longitude = coordinates[store]  
-    purchase_time = generate_random_time()  
-    card_number, bank, payment_system = generate_unique_card_number()  
-    quantity, price = generate_quantity_and_price()
 
+def generate_purchase_row():
+
+    store = random.choice(stores)
+    latitude, longitude, start_t, end_t = random.choice(stores_data[store]) 
+    purchase_time = generate_random_time(start_t,end_t)
+    category = random.choice(categories[store])  
+    brand = random.choice(brands[category][ : (len(brands[category]) - 2)])  
+    card_number, bank, payment_system = generate_unique_card_number()   
+    quantity, price = generate_quantity_and_price(brands[category])
+    
     return {
         "Магазин": store,
-        "Категория": category,
-        "Бренд": brand,
-        "Дата и время": purchase_time,
         "Широта": latitude,
         "Долгота": longitude,
+        "Дата и время": purchase_time,
+        "Категория": category,
+        "Бренд": brand,
         "Номер карты": card_number,
         "Банк": bank,
         "Платежная система": payment_system,
