@@ -35,8 +35,12 @@ def generate_unique_card_number():
 
 def generate_quantity_and_price(a):
     quantity = random.randint(5,10)
-    price = (random.randint( a[len(a)-2] , a[len(a)-1] )) * quantity
+    price = 0
+    for _ in range(1,quantity+1):    
+        price += (random.randint( a[len(a)-2] , a[len(a)-1] ))
     return quantity, price
+
+
 
 
 print("Напишите вероятность для каждого банка , в сумме должно быть 1!")
@@ -50,8 +54,6 @@ print("Введите вероятность для платёжных сист�
 mir = float(input())
 visa = float(input())
 master = float(input())
-
-
 
 def generate_purchase_row():
 
