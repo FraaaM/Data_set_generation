@@ -42,3 +42,42 @@ C. Ограничения датасета:
 7. Количество товаров - минимум 5
 8. Стоимость - не бывает бесплатных или пустых значений. Если
 появляются - выводится ошибка.
+
+'''def z_c(flt): # zero_counter
+    if flt != float:
+        return 0
+    count = 1
+    while flt <=0 :
+        flt*10
+        count *= 10
+    return count'''
+
+---------------------------------------safe---------
+
+print("Напишите вероятность для каждого банка , в сумме должно быть 1!")
+print("1 - Сбербанк, 2 - Тинькофф, 3 - Альфа-Банк , 4 - ВТБ, 5 - ПСБ")
+sber = input()
+while float(sber)!=float:
+    sber = input
+    
+tenek = input()
+alf = input()
+vtb = input()
+psb = input()  
+#while ( (any( b != int for b in [sber, tenek, alf, vtb, psb])) 
+ #   or ( ( int(sber*z_c(sber))+int(tenek*z_c(tenek))+int(alf*z_c(alf))+int(vtb*z_c(vtb))+int(psb*z_c(psb)) )>100)):
+while ( not(all( b == float for b in [float(sber),float(tenek),float(alf),float(vtb),float(psb)]))
+    and ( (int(sber*100) + int(tenek*100) + int(alf*100) + int(vtb*100) + int(psb)*100) > 100) ):
+    print("Напишите вероятность для каждого банка , в сумме должно быть 1-!")
+    print("1 - Сбербанк, 2 - Тинькофф, 3 - Альфа-Банк , 4 - ВТБ, 5 - ПСБ")
+    sber = input()
+    tenek = input()
+    alf = input()
+    vtb = input()
+    psb = input()
+
+sber = float(sber)
+tenek = float(tenek)
+alf = float(alf)
+vtb = float(vtb)
+psb = float(psb)

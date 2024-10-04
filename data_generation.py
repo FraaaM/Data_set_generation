@@ -40,20 +40,42 @@ def generate_quantity_and_price(a):
         price += (random.randint( a[len(a)-2] , a[len(a)-1] ))
     return quantity, price
 
+'''def z_c(flt): # zero_counter
+    if flt != float:
+        return 0
+    count = 1
+    while flt <=0 :
+        flt*10
+        count *= 10
+    return count'''
 
 
 
-print("Напишите вероятность для каждого банка , в сумме должно быть 1!")
+print("Введите вероятность для каждого банка , в сумме должно быть 1!")
 print("1 - Сбербанк, 2 - Тинькофф, 3 - Альфа-Банк , 4 - ВТБ, 5 - ПСБ")
 sber = float(input())
 tenek = float(input())
 alf = float(input())
 vtb = float(input())
-psb = float(input())   
+psb = float(input())  
+while (int(sber*100) + int(tenek*100) + int(alf*100) + int(vtb*100) + int(psb*100) > 100):
+    print("Ошибка! Введите вероятность для каждого банка , в сумме должно быть 1!")
+    print("1 - Сбербанк, 2 - Тинькофф, 3 - Альфа-Банк , 4 - ВТБ, 5 - ПСБ")
+    sber = float(input())
+    tenek = float(input())
+    alf = float(input())
+    vtb = float(input())
+    psb = float(input())
+
 print("Введите вероятность для платёжных систем: 1 - МИР, 2 - Visa, 3 - MasterCard")
 mir = float(input())
 visa = float(input())
 master = float(input())
+while (int(mir*100) + int(visa*100) + int(master*100)) > 100:
+    print("Ошибка! Введите вероятность для платёжных систем: 1 - МИР, 2 - Visa, 3 - MasterCard")
+    mir = float(input())
+    visa = float(input())
+    master = float(input())
 
 def generate_purchase_row():
 
