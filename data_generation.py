@@ -52,30 +52,28 @@ def generate_quantity_and_price(a):
 
 
 print("Введите вероятность для каждого банка , в сумме должно быть 1!")
-print("1 - Сбербанк, 2 - Тинькофф, 3 - Альфа-Банк , 4 - ВТБ, 5 - ПСБ")
-sber = float(input())
-tenek = float(input())
-alf = float(input())
-vtb = float(input())
-psb = float(input())  
+sber = float(input(f"{'Сбребанк: '}" ))
+tenek = float(input(f"{'Тинькофф: '}"))
+alf = float(input(f"{'Альфа-Банк: '}"))
+vtb = float(input(f"{'ВТБ: '}"))
+psb = float(input(f"{'ПСБ: '}"))  
 while (int(sber*100) + int(tenek*100) + int(alf*100) + int(vtb*100) + int(psb*100) > 100):
     print("Ошибка! Введите вероятность для каждого банка , в сумме должно быть 1!")
-    print("1 - Сбербанк, 2 - Тинькофф, 3 - Альфа-Банк , 4 - ВТБ, 5 - ПСБ")
-    sber = float(input())
-    tenek = float(input())
-    alf = float(input())
-    vtb = float(input())
-    psb = float(input())
+    sber = float(input(f"{'Сбребанк: '}" ))
+    tenek = float(input(f"{'Тинькофф: '}"))
+    alf = float(input(f"{'Альфа-Банк: '}"))
+    vtb = float(input(f"{'ВТБ: '}"))
+    psb = float(input(f"{'ПСБ: '}"))
 
-print("Введите вероятность для платёжных систем: 1 - МИР, 2 - Visa, 3 - MasterCard")
-mir = float(input())
-visa = float(input())
-master = float(input())
+print("Введите вероятность для платёжных систем: ")
+mir = float(input(f"{'MИР: '}"))
+visa = float(input(f"{'Visa '}"))
+master = float(input(f"{'MasterCard '}"))
 while (int(mir*100) + int(visa*100) + int(master*100)) > 100:
-    print("Ошибка! Введите вероятность для платёжных систем: 1 - МИР, 2 - Visa, 3 - MasterCard")
-    mir = float(input())
-    visa = float(input())
-    master = float(input())
+    print("Ошибка! Введите вероятность для платёжных систем: ")
+    mir = float(input(f"{'MИР: '}"))
+    visa = float(input(f"{'Visa '}"))
+    master = float(input(f"{'MasterCard '}"))
 
 def generate_purchase_row():
 
