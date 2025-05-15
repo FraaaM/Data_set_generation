@@ -4,10 +4,17 @@ from datetime import datetime, timedelta
 from collections import defaultdict
 from data import *
 
+import random
+from datetime import datetime, timedelta
+
 def generate_random_time(open_t, close_t):
-    current_date = datetime.now().date()
-    open_time = datetime.combine(current_date, datetime.strptime(open_t, "%H:%M").time())
-    close_time = datetime.combine(current_date, datetime.strptime(close_t, "%H:%M").time())
+    current_year = datetime.now().year
+    random_month = random.randint(1, 12)
+    random_day = random.randint(1, 28) 
+    random_date = datetime(current_year, random_month, random_day)
+
+    open_time = datetime.combine(random_date, datetime.strptime(open_t, "%H:%M").time())
+    close_time = datetime.combine(random_date, datetime.strptime(close_t, "%H:%M").time())
 
     delta = close_time - open_time
     random_seconds = random.randint(0, delta.seconds)
